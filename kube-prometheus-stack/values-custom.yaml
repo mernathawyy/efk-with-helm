@@ -1,0 +1,66 @@
+# ===============================
+# Global Settings
+# ===============================
+global:
+  storageClass: "standard"
+
+# ===============================
+# Grafana Settings
+# ===============================
+grafana:
+  enabled: true
+  adminUser: admin
+  adminPassword: admin123
+
+  service:
+    type: NodePort
+    nodePort: 32000
+
+  persistence:
+    enabled: false
+
+  ingress:
+    enabled: false
+
+# ===============================
+# Prometheus Settings
+# ===============================
+prometheus:
+  enabled: true
+
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+    # 🔥 Jenkins برّه Kubernetes
+    additionalScrapeConfigs:
+      - job_name: "jenkins-external"
+        metrics_path: /prometheus
+        scrape_interval: 15s
+        static_configs:
+          - targets:
+              - host.minikube.internal:8080
+
+    storageSpec:
+      emptyDir: {}
+
+# ===============================
+# Node Exporter
+# ===============================
+nodeExporter:
+  enabled: true
+
+# ===============================
+# kube-state-metrics
+# ===============================
+kubeStateMetrics:
+  enabled: true
+
+# ===============================
+# Alertmanager
+# ===============================
+alertmanager:
+  enabled: true
+  alertmanagerSpec:
+    storage:
+      emptyDir: {}
+

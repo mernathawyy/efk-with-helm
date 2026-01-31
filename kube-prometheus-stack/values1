@@ -1,0 +1,55 @@
+global:
+  storageClass: "standard"
+
+grafana:
+  enabled: true
+  adminUser: admin
+  adminPassword: admin123
+  service:
+    type: NodePort
+    nodePort: 32000
+  persistence:
+    enabled: false
+  ingress:
+    enabled: false
+
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelectorNilUsesHelmValues: false
+    additionalServiceMonitors:
+      - name: jenkins-monitor
+        selector:
+          matchLabels:
+            app: jenkins
+        endpoints:
+          - port: 8080
+            path: /metrics
+            interval: 15s
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          emptyDir: {} 
+  service:
+    type: ClusterIP
+
+jenkins:
+  enabled: true
+  service:
+    type: ClusterIP
+    port: 8080
+
+nodeExporter:
+  enabled: true
+  service:
+    type: ClusterIP
+
+kubeStateMetrics:
+  enabled: true
+
+alertmanager:
+  alertmanagerSpec:
+    service:
+      type: ClusterIP
+    storage:
+      emptyDir: {} 
+

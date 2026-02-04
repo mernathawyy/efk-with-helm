@@ -1,0 +1,21 @@
+replicas: 1
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "512Mi"
+  limits:
+    cpu: "500m"
+    memory: "1Gi"
+
+elasticsearchHosts: "https://elasticsearch-master.efk.svc.cluster.local:9200"
+
+elasticsearchCertificateSecret: elasticsearch-master-certs
+elasticsearchCertificateAuthoritiesFile: ca.crt
+elasticsearchCredentialSecret: elasticsearch-master-credentials
+
+service:
+  type: NodePort
+  port: 5601
+  nodePort: 30056
+

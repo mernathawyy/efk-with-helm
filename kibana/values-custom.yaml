@@ -11,7 +11,7 @@ resources:
     memory: "1Gi"
 
 # إعدادات الاتصال بالـ Elasticsearch
-elasticsearchHosts: "https://elasticsearch-master.efk.svc:9200"
+elasticsearchHosts: "https://elasticsearch-master.efk.svc.cluster.local:9200"
 elasticsearchSSLVerificationMode: "none"  # تعطيل التحقق من الشهادة TLS
 
 # اسم المستخدم وكلمة المرور للـ Elasticsearch

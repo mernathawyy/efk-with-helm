@@ -1,5 +1,7 @@
+# values-custom.yaml - Kibana customized for Minikube / EC2
 replicas: 1
 
+# موارد الـ Pod
 resources:
   requests:
     cpu: "100m"
@@ -8,14 +10,37 @@ resources:
     cpu: "500m"
     memory: "1Gi"
 
-elasticsearchHosts: "https://elasticsearch-master.efk.svc.cluster.local:9200"
+# إعدادات الاتصال بالـ Elasticsearch
+elasticsearchHosts: "https://elasticsearch-master.efk.svc:9200"
+elasticsearchSSLVerificationMode: "none"  # تعطيل التحقق من الشهادة TLS
 
-elasticsearchCertificateSecret: elasticsearch-master-certs
-elasticsearchCertificateAuthoritiesFile: ca.crt
-elasticsearchCredentialSecret: elasticsearch-master-credentials
+# اسم المستخدم وكلمة المرور للـ Elasticsearch
+extraEnvs:
+  - name: ELASTICSEARCH_USERNAME
+    value: "elastic"
+  - name: ELASTICSEARCH_PASSWORD
+    value: "fb5I2sTUjsOoxRmR"
+  - name: ELASTICSEARCH_SSL_VERIFICATIONMODE
+    value: "none"
 
+# إعدادات الخدمة
 service:
   type: NodePort
-  port: 5601
   nodePort: 30056
+  port: 5601
+
+# صحة الـ Pod
+healthCheckPath: "/app/kibana"
+
+# إعدادات الـ Pod/Container
+serverHost: "0.0.0.0"
+image: "docker.elastic.co/kibana/kibana"
+imageTag: "8.5.1"
+imagePullPolicy: "IfNotPresent"
+
+# Volume / Secrets / Configs إضافية (لو في حاجة)
+extraEnvs: []
+secretMounts: []
+extraVolumes: []
+extraVolumeMounts: []
 

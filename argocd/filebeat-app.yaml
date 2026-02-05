@@ -9,7 +9,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/elastic/helm-charts
+    repoURL: https://github.com/mernathawyy/efk-with-helm
     targetRevision: main
     path: filebeat
     helm:

@@ -51,10 +51,10 @@ podAnnotations: {}
 
 resources:
   requests:
-    cpu: "1000m"
+    cpu: "100m"
     memory: "2Gi"
   limits:
-    cpu: "1000m"
+    cpu: "200m"
     memory: "2Gi"
 
 protocol: http
@@ -120,10 +120,9 @@ updateStrategy:
   type: "Recreate"
 
 service:
-  type: ClusterIP
-  loadBalancerIP: ""
+  type: NodePort
+  nodePort: 30056
   port: 5601
-  nodePort: ""
   labels: {}
   annotations: {}
   # cloud.google.com/load-balancer-type: "Internal"

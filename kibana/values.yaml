@@ -4,7 +4,7 @@ elasticsearchCertificateSecret: elasticsearch-master-certs
 elasticsearchCertificateAuthoritiesFile: ca.crt
 elasticsearchCredentialSecret: elasticsearch-master-credentials
 elasticsearchUsername: "elastic"
-elasticsearchPassword: "FKYpUsCWwbHw0hYb"
+elasticsearchPassword: "iOGAb45A73Qp2bmc"
 elasticsearchSSLVerificationMode: "none" 
 
 replicas: 1

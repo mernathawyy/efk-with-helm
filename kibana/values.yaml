@@ -1,10 +1,10 @@
 ---
-elasticsearchHosts: "https://elasticsearch-master.efk:9200"
+elasticsearchHosts: "https://elasticsearch-master:9200"
 elasticsearchCertificateSecret: elasticsearch-master-certs
 elasticsearchCertificateAuthoritiesFile: ca.crt
 elasticsearchCredentialSecret: elasticsearch-master-credentials
 elasticsearchUsername: "elastic"
-elasticsearchPassword: "0HvjKyElyGWd0OtK"
+elasticsearchPassword: "JU2RaSaDxGd43iKW"
 elasticsearchSSLVerificationMode: "none" 
 
 replicas: 1

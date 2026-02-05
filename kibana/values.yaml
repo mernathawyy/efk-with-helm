@@ -1,8 +1,11 @@
 ---
-elasticsearchHosts: "https://elasticsearch-master:9200"
+elasticsearchHosts: "https://elasticsearch-master.efk.svc.cluster.local:9200"
 elasticsearchCertificateSecret: elasticsearch-master-certs
 elasticsearchCertificateAuthoritiesFile: ca.crt
 elasticsearchCredentialSecret: elasticsearch-master-credentials
+elasticsearchUsername: "elastic"
+elasticsearchPassword: "FKYpUsCWwbHw0hYb"
+elasticsearchSSLVerificationMode: "none" 
 
 replicas: 1
 

@@ -235,6 +235,11 @@ spec:
 
 ### Sync Status
 
+<img width="1920" height="1020" alt="Screenshot 2026-02-05 032752" src="https://github.com/user-attachments/assets/e432ef7d-693f-4011-bc68-69fef15c1089" />
+
+<img width="1920" height="1020" alt="Screenshot 2026-02-05 032824" src="https://github.com/user-attachments/assets/638e334f-ca2f-44e2-92cb-489cc11ad68f" />
+
+
 * Applications synced successfully
 * Pods recreated automatically
 * No manual intervention needed
